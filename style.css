@@ -1,0 +1,161 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+    font-family: Arial, sans-serif; /* Added a common sans-serif font */
+}
+
+.calculator {
+    width: 320px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Enhanced shadow */
+}
+
+.display-area {
+    margin-bottom: 20px; /* Slightly increased margin */
+}
+
+.display-area input {
+    width: 100%;
+    padding: 15px;
+    font-size: 2.2em; /* Slightly increased font size */
+    text-align: right;
+    box-sizing: border-box;
+    border: 1px solid #bbb; /* Darker border for display */
+    border-radius: 5px;
+    background-color: #fdfdfd; /* Slightly off-white display background */
+    color: #333; /* Darker text for display */
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.buttons button {
+    padding: 20px;
+    font-size: 1.5em;
+    border: 1px solid #ddd;
+    border-radius: 8px; /* More rounded buttons */
+    cursor: pointer;
+    background-color: #f9f9f9;
+    color: #333; /* Default button text color */
+    transition: background-color 0.2s, box-shadow 0.2s; /* Added box-shadow transition */
+}
+
+.buttons button:hover {
+    background-color: #e7e7e7; /* Slightly darker hover */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow on hover */
+}
+
+.buttons button:active { /* Active state for all buttons */
+    background-color: #dcdcdc;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.buttons button.operator {
+    background-color: #ff9800; /* Material Design Orange */
+    color: white;
+}
+
+.buttons button.operator:hover {
+    background-color: #fb8c00; /* Darker orange */
+}
+
+.buttons button.operator:active {
+    background-color: #f57c00; /* Even darker orange */
+}
+
+.buttons button#clear {
+    background-color: #f44336; /* Material Design Red */
+    color: white;
+}
+
+.buttons button#clear:hover {
+    background-color: #e53935; /* Darker red */
+}
+
+.buttons button#clear:active {
+    background-color: #d32f2f; /* Even darker red */
+}
+
+.buttons button#equals {
+    background-color: #4caf50; /* Material Design Green */
+    color: white;
+    grid-row: span 2;
+}
+
+.buttons button#equals:hover {
+    background-color: #43a047; /* Darker green */
+}
+
+.buttons button#equals:active {
+    background-color: #388e3c; /* Even darker green */
+}
+
+.buttons button.zero {
+    grid-column: span 2;
+    background-color: #607d8b; /* Material Design Blue Grey for numbers/zero */
+    color: white;
+}
+.buttons button.zero:hover {
+    background-color: #546e7a;
+}
+.buttons button.zero:active {
+    background-color: #455a64;
+}
+
+.buttons button.number { /* Default number buttons */
+    background-color: #607d8b; /* Material Design Blue Grey */
+    color: white;
+}
+
+.buttons button.number:hover {
+    background-color: #546e7a;
+}
+
+.buttons button.number:active {
+    background-color: #455a64;
+}
+
+/* Ensure specific operator/clear/equals styles override .number if classes are combined (though not in current HTML) */
+.buttons button#clear.number, /* Example if clear was also a number */
+.buttons button.operator.number {
+    /* Keep operator colors */
+}
+.buttons button#equals.number {
+    /* Keep equals colors */
+}
+
+/* ID specific styles for operators - already distinct, but good to keep */
+#add {}
+#subtract {}
+#multiply {}
+#divide {}
+#decimal {}
+
+/* Responsive considerations: For this fixed-size calculator,
+   ensuring it doesn't break the page on very small screens is key.
+   The body flex centering helps. Max-width could be an option if it were larger.
+*/
+@media (max-width: 360px) {
+    .calculator {
+        width: 95%; /* Allow shrinking on very small screens */
+        padding: 15px;
+    }
+    .buttons button {
+        padding: 15px;
+        font-size: 1.2em;
+    }
+    .display-area input {
+        font-size: 1.8em;
+        padding: 10px;
+    }
+}
